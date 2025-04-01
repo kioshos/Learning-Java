@@ -56,11 +56,12 @@ public class Main {
             System.out.println(accounts[i].toString());
         }
 
-        AccountService accountService = new AccountService();
-        var debitAccounts = accountService.GetAccountsByType(AccountType.Debit, Arrays.stream(accounts).toList());
-        var creditAccounts = accountService.GetAccountsByType(AccountType.Credit, Arrays.stream(accounts).toList());
-        var account = accountService.GetAccountByNumber("5495665122562581", Arrays.stream(accounts).toList());
 
+
+        AccountService accountService = new AccountService();
+        var debitAccounts = accountService.getAccountsByType(AccountType.Debit, Arrays.stream(accounts).toList());
+        var creditAccounts = accountService.getAccountsByType(AccountType.Credit, Arrays.stream(accounts).toList());
+        var account = accountService.getAccountByNumber("5495665122562581", Arrays.stream(accounts).toList());
         System.out.println();
         System.out.println("Account by card number 5495665122562581");
         System.out.println(account.toString());
@@ -114,6 +115,12 @@ public class Main {
            instrument.Description();
            instrument.History();
            System.out.println("_____________________________");
+
+
         }
+        AccountService service = new AccountService();
+        service.saveToFile(Arrays.stream(accounts).toList(), "accounts.dat");
+        List<Account> accounts1 = service.loadFromFile("accounts.dat");
+        DisplayAccounts(accounts1);
     }
 }
