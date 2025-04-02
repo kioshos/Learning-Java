@@ -122,5 +122,9 @@ public class Main {
         service.saveToFile(Arrays.stream(accounts).toList(), "accounts.dat");
         List<Account> accounts1 = service.loadFromFile("accounts.dat");
         DisplayAccounts(accounts1);
+
+        System.out.println();
+        System.out.println("Lab 4");
+        System.out.println();
     }
 }
