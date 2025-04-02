@@ -1,4 +1,4 @@
-﻿package HouseBuilding.Interfaces;
+package HouseBuilding.Interfaces;
 
 public interface PartImp {
     String getName();

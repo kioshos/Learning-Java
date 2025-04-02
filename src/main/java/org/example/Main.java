@@ -2,6 +2,10 @@ package org.example;
 import BankService.Account;
 import BankService.AccountService;
 import BankService.AccountType;
+import HouseBuilding.BuildingTeam.TeamLeader;
+import HouseBuilding.BuildingTeam.Worker;
+import HouseBuilding.HouseModel.House;
+import HouseBuilding.Interfaces.WorkerImp;
 import Musically.*;
 import TaskTwo.Article;
 import TaskTwo.Frequency;
@@ -126,5 +130,28 @@ public class Main {
         System.out.println();
         System.out.println("Lab 4");
         System.out.println();
+        House house = new House();
+
+        house.displayHouseParts();
+
+        Worker[] workers = new Worker[] {
+                new Worker("Dean"),
+                new Worker("Moose")
+        };
+        TeamLeader teamLeader = new TeamLeader();
+        boolean constructionCompleted = false;
+
+        while(!constructionCompleted) {
+            for(WorkerImp worker : workers) {
+                worker.work(house);
+            }
+
+            constructionCompleted = (house.getUnbuiltParts().length == 0);
+        }
+
+        house.displayHouseParts();
+        System.out.println();
+        teamLeader.work(house);
+
     }
 }

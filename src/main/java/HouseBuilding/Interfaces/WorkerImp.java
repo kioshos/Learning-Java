@@ -1,4 +1,4 @@
-﻿package HouseBuilding.Interfaces;
+package HouseBuilding.Interfaces;
 
 import HouseBuilding.HouseModel.House;
 
