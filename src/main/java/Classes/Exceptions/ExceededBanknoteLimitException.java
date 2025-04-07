@@ -1,4 +1,4 @@
-﻿package Classes.Exceptions;
+package Classes.Exceptions;
 
 public class ExceededBanknoteLimitException extends ATMException {
     public ExceededBanknoteLimitException() {

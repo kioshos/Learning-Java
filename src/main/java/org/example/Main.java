@@ -1,17 +1,33 @@
 package org.example;
 
+import Classes.ATM;
+import Classes.Bank;
+import Classes.Exceptions.ATMException;
+
+import java.util.*;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        try {
+            Bank bank = new Bank(4);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+            Map<Integer, Integer> initialLoad = new HashMap<>();
+            initialLoad.put(100, 10);
+            initialLoad.put(50, 20);
+            initialLoad.put(10, 50);
+
+            bank.deposit(initialLoad);
+
+            System.out.println("Total balance: " + bank.getTotalBalance());
+
+            ATM atm = bank.getAtms()[0];
+            System.out.println("Withdraw 280 UAH: " + atm.withdrawCash(300).toString());
+            System.out.println("Total balance: " + bank.getTotalBalance());
+
+
+        } catch (ATMException e) {
+            System.err.println("Помилка: " + e.getMessage());
         }
     }
 }
