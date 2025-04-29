@@ -1,17 +1,42 @@
 package org.example;
 
+import Task_1.UserHandler;
+import Task_3.Caffee;
+import Task_3.Guest;
+
+import java.util.ArrayList;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        /*UserHandler userManager = new UserHandler();
+        userManager.start();*/
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Caffee caffee = new Caffee();
+        List<Guest> guests = new ArrayList<>() {{
+            add(new Guest("Anna", -1, false));
+            add(new Guest("Bohdan", -1, false));
+            add(new Guest("Catherine", -1, false));
+            add(new Guest("Dmytro", -1, false));
+            add(new Guest("Elena", -1, false));
+            add(new Guest("Fedir", -1, false));
+            add(new Guest("Hanna", -1, false));
+            add(new Guest("Ihor", -1, false));
+            add(new Guest("Julia", -1, false));
+            add(new Guest("Kyrylo", -1, false));
+        }};
+
+        caffee.reserveTable(guests.get(0),2);
+        caffee.reserveTable(guests.get(4),6);
+        caffee.reserveTable(guests.get(5),8);
+
+        for (int i = 0; i < guests.size(); i++) {
+            Guest guest = guests.get(i);
+            caffee.addGuest(guest);
         }
+
+        caffee.seatGuests();
     }
 }
