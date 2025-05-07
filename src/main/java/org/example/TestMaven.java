@@ -27,7 +27,7 @@ public class TestMaven {
             prop.load(Objects.requireNonNull(resourceAsStream));
 
         }catch (IOException e){
-
+            System.err.println("Could not load config.properties");
         }
         System.out.println(prop.get("props.local.hello"));
         System.out.println(prop.get("props.mvn.hello"));
